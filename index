@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제품 검색</title>
+    <style>
+        body {
+            font-family: 'Nanum Gothic', Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .search-section {
+            text-align: center;
+            padding: 40px;
+            background-color: #1c386f; /* 배경색 */
+            color: white;
+            width: 100%;
+            max-width: 1000px; /* 최대 너비 */
+            height: 500px; /* 높이 설정 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        /* 로고를 검색창 바로 위에 배치 */
+        .logo {
+            position: absolute;
+            top: 20%; /* 2/4 위치로 로고 배치 */
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 150px; /* 로고 크기 제한 */
+        }
+        .search-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            width: 90%;
+            max-width: 600px;
+            margin-top: 150px; /* 검색창을 로고 아래로 충분히 위치 */
+        }
+        .search-input {
+            flex: 1;
+            padding: 20px 25px; /* 크기 키움 */
+            font-size: 18px; /* 폰트 크기 키움 */
+            border: 2px solid #fff;
+            border-radius: 5px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .search-input::placeholder {
+            font-size: 16px;
+            color: #aaa; /* Placeholder 색상 */
+        }
+        .search-input:focus {
+            border-color: #00aaff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        .search-button {
+            padding: 18px 30px; /* 버튼 크기 키움 */
+            background-color: #007bff; /* 버튼 색상 */
+            color: white;
+            font-size: 18px; /* 버튼 폰트 크기 */
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .search-button:hover {
+            background-color: #0056b3; /* hover 시 더 어두운 파란색 */
+            transform: scale(1.05); /* 약간 확대 효과 */
+        }
+        @media (max-width: 600px) {
+            .search-box {
+                flex-direction: column; /* 모바일에서 버튼과 입력창을 세로로 정렬 */
+                gap: 10px;
+            }
+            .search-input {
+                width: 100%;
+            }
+            .search-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="search-section">
+        <!-- 로고 추가 (검색창 바로 위에 배치) -->
+        <div class="logo">
+            <img src="./my-v4-page/EM-V1-WHITE.png" alt="로고">
+        </div>
+
+        <!-- 검색창 -->
+        <form action="https://blog.naver.com/PostSearchList.naver" method="GET" class="search-box">
+            <input type="hidden" name="blogId" value="em_industry">
+            <input 
+                type="text" 
+                name="searchText" 
+                class="search-input" 
+                placeholder="제조사 또는 제품명을 입력하세요">
+            <button type="submit" class="search-button">검색</button>
+        </form>
+    </div>
+
+</body>
+</html>
